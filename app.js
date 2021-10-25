@@ -7,6 +7,7 @@ require('./lib/models')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var apiRouter = require('./routes/api'); //loading the api router (the api.js file)
 
 var app = express();
 
