@@ -32,6 +32,18 @@ router.post('/portfolio', async function (req, res, next) {
     res.json(item);
 });
 
+router.delete('/portfolio/:id', async function (req, res, next) { //:id means that i can plug in the id i want to delete
+    //we are going to lookupthe value of the id and then have 
+    //the database delete the item with id = value
+    //this is where the information is available to us as req.body
+    // req.params gets us the values in the URL above
+    console.log(req.params);
+    //the query create an item in the protfolio table
+    let item = await Portfolio.destroy({ where: { id: req.params.id } });
+    res.json(item);
+});
+
+
 
 
 
