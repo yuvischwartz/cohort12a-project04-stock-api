@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
   res.send('This is the API router')
 });
 
-//Basic Routes
+//Basic Routes //Restful routes RESTFul routes
 //1. GET / api / v1 / protfolio - Fetch all the rows in the Protfolio table
 //2. POST /api/v1/protfolio - Create an item in the protfolio
 //3.DETETE /api/v1/portfolio - Delete a portfolio item (selling the item)
@@ -20,6 +20,19 @@ router.get('/portfolio', async function (req, res, next) {
     let items = await Portfolio.findAll({});
     res.json(items);
 });
-  
+
+
+//2
+
+router.post('/portfolio', async function (req, res, next) {
+    //this is where the information is available to us as req.body
+    console.log(req.body);
+    //the query create an item in the protfolio table
+    let item = await Portfolio.create(req.body);
+    res.json(item);
+});
+
+
+
 
 module.exports = router;
