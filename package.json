@@ -13,6 +13,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "mysql2": "^2.3.2",
-    "sequelize": "^6.8.0"
+    "sequelize": "^6.8.0",
+    "yahoo-stock-prices": "^1.1.0"
   }
 }
