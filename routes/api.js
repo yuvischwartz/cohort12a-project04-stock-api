@@ -20,14 +20,24 @@ router.get('/', function(req, res, next) {
 //6. SEARCH 
 // GET /api/v1/search/:symbol //example: http:/localhost:3000/api/v1/search/AAPL
  
-//1
+//Endpoints 
+
+//1 Portfolio
 router.get('/portfolio', async function (req, res, next) {
     //the query should fetch all the rows in the portfolio table
     let items = await Portfolio.findAll({});
     res.json(items);
 });
 
-//6 search endpoint
+
+//4 Wallet
+router.get('/wallet', async (req, res) => {
+    //console.log('req.params is', req.params);
+    let item = await Wallet.findOne({})
+    res.json(item)
+})
+
+//6 Search endpoint
 router.get('/search/:symbol', async function (req, res, next) {
     //req.params is goind to have the value of the symbol
     console.log(req.params)
@@ -43,7 +53,6 @@ router.get('/search/:symbol', async function (req, res, next) {
 });
 
 //2
-
 router.post('/portfolio', async function (req, res, next) {
     //this is where the information is available to us as req.body
     console.log(req.body);
@@ -52,6 +61,7 @@ router.post('/portfolio', async function (req, res, next) {
     res.json(item);
 });
 
+//3
 router.delete('/portfolio/:id', async function (req, res, next) { //:id means that i can plug in the id i want to delete
     //we are going to lookupthe value of the id and then have 
     //the database delete the item with id = value
